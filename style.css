@@ -1,0 +1,149 @@
+@charset "UTF-8";
+
+:root {
+    --Green500: hsl(158, 36%, 37%);
+    --Green700: hsl(158, 42%, 18%);
+    --Black: hsl(212, 21%, 14%);
+    --White: hsl(0, 0%, 100%);
+    --Grey: hsl(228, 12%, 48%);
+    --Cream: hsl(30, 38%, 92%);
+
+    --ff-fraunces: "Fraunces", serif;
+    --ff-montserrat: "Montserrat", sans-serif; //root nas fontfamily e fontweight para facilitar a manutenção
+
+    --fw-regular: 500;
+    --fw-bold: 700;
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+h1, h2, h3 {
+    line-height: 1;
+}
+
+body {
+    font-family: var(--ff-montserrat);
+    font-weight: var(--fw-regular);
+    font-size: 0.9rem;
+    color: var(--Grey);
+    background-color: var(--Cream);
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.button {
+    cursor: pointer;
+    text-decoration: none;
+    display: ;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--Green500);
+    color: var(--White);
+    font-weight: var(--fw-bold);
+    font-size: 0.925rem;
+}
+
+.button[data-icon="shopping-cart"]::before {
+  content: "";
+  background-image: url("images/icon-cart.svg");
+  width: 15px;
+  height: 16px;
+}
+
+.button:is(:hover, :focus) {
+    background-color: var(--Green700);
+}
+
+.product {
+    --content-padding: 1.5rem;
+    --content-spacing: 1rem;
+
+    display: grid;
+    background-color: var(--White);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    max-width: 600px;
+}
+
+@media (min-width: 600px) {
+    .product {
+        --content-padding: 2rem;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+    .content {
+        display: grid;
+        gap: var(--content-spacing);
+        padding: var(--content-padding);
+    }
+
+    .category {
+        font-size: 0.8125rem;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+    }
+
+    .title {
+        font-family: var(--ff-fraunces);
+        font-size: 2rem;
+        color: var(--Black);
+    }   
+
+    .newprice {
+        font-size: 2rem;
+        font-family: var(--ff-fraunces);
+        color: var(--Green500);
+    }
